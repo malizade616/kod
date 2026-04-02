@@ -28,14 +28,8 @@ y_pred = model.predict(X_test)
 rmse = root_mean_squared_error(y_test, y_pred)
 
 
-
-
 print(f"Modellens resultat")
 print(f"Felmarginal (RMSE): {rmse:.2f} kr")
-
-
-
-
 
 
 
@@ -62,10 +56,10 @@ input_data = pd.DataFrame({
 # One-hot encoding
 input_data = pd.get_dummies(input_data)
 
-# Matcha kolumner med träningsdata
+# kollar kolumner med träningsdata
 input_data = input_data.reindex(columns=X.columns, fill_value=0)
 
-# Prediction
+# Prediktera pris
 if st.button("Prediktera pris"):
     prediction = model.predict(input_data)
     st.success(f"💰 Predikterat pris: {prediction[0]:,.0f} kr")
